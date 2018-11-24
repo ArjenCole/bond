@@ -9,15 +9,16 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    imgUrl: ''
+    imgUrl: '',
+
+    bonds:0
   },
 
+  onLoad: function(){
+    this.autoGetUserInfo();
+    this.autoGetBonds();
+  },
   onShow: function () {
-    this.autoGetUserInfo()
-  },
-
-  bindGetUserInfo: function () {
-    //this.autoGetUserInfo()
   },
 
   // 获得用户信息
@@ -54,8 +55,70 @@ Page({
 
 
   },
+  autoGetBonds: function(){
+    var that=this; 
+
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+
+    db.collection('bond').where({
+      _openid: this.data.userInfo.openId
+    }).get({
+      success: function (res) {
+        var tBonds = 0;
+        for (var i = 0; i < res.data.length; i++) {
+          tBonds = tBonds + res.data[i].Bonds;
+          console.log(tBonds + "  " +  res.data[i].Bonds);          
+        }
+        that.setData({
+          bonds:tBonds
+        })
+      }
+    })
+  },
 
 
+  bindaddRecord: function () {
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+    db.collection('bond').add({
+      // data 字段表示需新增的 JSON 数据
+      /*
+      data: {
+        // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+        description: "learn cloud database",
+        due: new Date("2018-09-01"),
+        tags: [
+          "cloud",
+          "database"
+        ],
+        // 为待办事项添加一个地理位置（113°E，23°N）
+        location: new db.Geo.Point(113, 23),
+        done: false
+      }
+      */
+      data: {
+        Name: "目标二",
+        DateStart: new Date(Date.now()),
+        DateStop: new Date("2019-03-01"),
+        LowLomit: 40,
+        Bonds:10.5,
+        DatesChecked: []
+      },
+      success: function (res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        console.log(res)
+      }
+    })
+  },
+
+//==============================================================================================================
+
+  bindGetUserInfo: function () {
+    //this.autoGetUserInfo()
+  },
   // 切换是否带有登录态
   switchRequestMode: function (e) {
     this.setData({
@@ -63,7 +126,6 @@ Page({
     })
     this.doRequest()
   },
-
   doRequest: function () {
     util.showBusy('请求中...')
     var that = this
@@ -129,7 +191,6 @@ Page({
       }
     })
   },
-
   // 预览图片
   previewImg: function () {
     wx.previewImage({
@@ -148,7 +209,6 @@ Page({
       this.closeTunnel()
     }
   },
-
   openTunnel: function () {
     util.showBusy('信道连接中...')
     // 创建信道，需要给定后台服务地址
@@ -251,7 +311,6 @@ Page({
         console.log(res)
       }
     })
-
   },
   getRecord: function () {
     wx.cloud.init();
