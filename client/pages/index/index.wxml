@@ -13,14 +13,14 @@
         </view-->
     </view>
 
-  <view class="userbond">
-    <text bindtap="bindWalletTap" class="userbond">保证金: {{bond}}</text>
+  <view class="marginTop20">
+    <text bindtap="bindWalletTap" space="emsp" class="textFontSize">保证金: {{bond}}</text>
   </view>
-  <view class="management">
-    <text bindtap="bindItemsTap" class="userbond">目 标 管 理</text>
+  <view class="marginTop180">
+    <text bindtap="bindItemsTap" space="emsp" class="textFontSize">目 标 管 理</text>
   </view>
-  <view class="userbond">
-    <text bindtap="bindWalletTap" class="userbond">余 额 管 理</text>
+  <view class="marginTop20">
+    <text bindtap="bindWalletTap" space="emsp" class="textFontSize">余 额 管 理</text>
   </view>
 
 
