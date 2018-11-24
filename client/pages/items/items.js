@@ -37,7 +37,7 @@ Page({
       var item = app.globalData.itemList[i];
       var lastCheckedDate;
       if (item.DatesChecked.length>0){
-        lastCheckedDate = item.checkedDates[item.DatesChecked.length - 1];
+        lastCheckedDate = item.DatesChecked[item.DatesChecked.length - 1];
       }else{
         lastCheckedDate = null;
       }
