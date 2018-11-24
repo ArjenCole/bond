@@ -76,6 +76,11 @@ Page({
     })
   },
 
+  bindItemsTap: function () {
+    wx.navigateTo({
+      url: '../items/items'
+    })
+  },
 
   bindaddRecord: function () {
     wx.cloud.init();
@@ -98,10 +103,10 @@ Page({
       }
       */
       data: {
-        Name: "目标二",
+        Text: "目标二",
         DateStart: new Date(Date.now()),
         DateStop: new Date("2019-03-01"),
-        LowLomit: 40,
+        LowLimit: 40,
         Bonds:10.5,
         DatesChecked: []
       },
