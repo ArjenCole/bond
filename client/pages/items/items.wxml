@@ -1,5 +1,5 @@
 <!--client/pages/items/items.wxml-->
-<block wx:for="{{itemList}}">
+<block wx:for="{{itemList}}"wx:key="itemListId">
 	<view class="weui_cell">
 		<!--view class="weui_cell_hd">
 			<image src="{{item.icon}}"></image>
