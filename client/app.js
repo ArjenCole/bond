@@ -3,7 +3,19 @@ var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 
 App({
-    onLaunch: function () {
-        qcloud.setLoginUrl(config.service.loginUrl)
-    },
+  onLaunch: function () {
+    qcloud.setLoginUrl(config.service.loginUrl)
+  },
+
+  sumBonds: function(){
+    var tBonds = 0;
+    for (var i = 0; i < this.globalData.itemList.length; i++) {
+      tBonds = tBonds + this.globalData.itemList[i].Bonds;       
+    }
+    return tBonds;
+  },
+  
+  globalData: {
+    itemList:[]
+  }
 })

@@ -2,6 +2,8 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
+const app = getApp()
+
 
 Page({
   data: {
@@ -60,19 +62,15 @@ Page({
 
     wx.cloud.init();
     const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    const db_bond = db.collection('bond');
 
-    db.collection('bond').where({
+    db_bond.where({
       _openid: this.data.userInfo.openId
     }).get({
       success: function (res) {
-        var tBonds = 0;
-        for (var i = 0; i < res.data.length; i++) {
-          tBonds = tBonds + res.data[i].Bonds;
-          console.log(tBonds + "  " +  res.data[i].Bonds);          
-        }
+        app.globalData.itemList=res.data;
         that.setData({
-          bonds:tBonds
+          bonds:app.sumBonds()
         })
       }
     })

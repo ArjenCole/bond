@@ -1,7 +1,8 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/addCgi/addCgi"
+    "pages/addCgi/addCgi",
+    "pages/items/items"
   ],
   "window": {
     "backgroundTextStyle": "light",
