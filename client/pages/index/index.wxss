@@ -1,5 +1,5 @@
 /**index.wxss**/
-page {
+/**page {
     background: #F6F6F6;
     display: flex;
     flex-direction: column;
@@ -126,4 +126,30 @@ page {
     font-size: 24rpx;
     line-height: 36rpx;
     word-break: break-all;
+}**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #485D6B;
+}
+
+.userbond {
+  margin-top: 20px;
+  color: #485D6B;
+}
+
+.management {
+  margin-top: 180px;
+  color: #485D6B;
 }
