@@ -42,10 +42,9 @@ Page({
         lastCheckedDate = null;
       }
       
-      item.isChecked = false;
-      if (lastCheckedDate == this.data.dateToday) {
+      item.isChecked = false;  
+      if (lastCheckedDate !=null && util.formatTime(lastCheckedDate) == util.formatTime(new Date())) {
         item.isChecked = true;
-        console.log(lastCheckedDate + " " + this.data.dateToday)
       }
     }
 
