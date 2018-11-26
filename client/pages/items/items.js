@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      dateToday: util.formatDate(new Date())
+      //dateToday: util.formatDate(new Date())
     })
   },
 
@@ -33,6 +33,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("onShow")
+    
+    /*
     for (var i in app.globalData.itemList) {
       var item = app.globalData.itemList[i];
       var lastCheckedDate;
@@ -43,13 +46,18 @@ Page({
       }
       
       item.isChecked = false;  
+      console.log(util.formatDate(lastCheckedDate))
+      console.log(util.formatDate(new Date()))
+      
       if (lastCheckedDate !=null && util.formatDate(lastCheckedDate) == util.formatDate(new Date())) {
         item.isChecked = true;
       }
     }
+    */
+
 
     this.setData({
-      itemList: app.globalData.itemList
+      itemList: util.IsChecked(app.globalData.itemList)
     })
 
   },
@@ -89,16 +97,54 @@ Page({
 
   },
 
-  itemCheck: function (e) {
+  bindItemCheck: function (e) {
     //this.setData({ msg: "Hello World" })
     console.log(e);
     var currentItem = e.currentTarget.dataset.item;
-    var index = currentItem.index;
+    var tID = currentItem._id;
+    console.log(tID);
 
-    app.globalData.itemList[index].checkedDates.push(this.data.dateToday);
-    app.globalData.itemList[index].isChecked = true;
-    this.setData({
-      itemList: app.globalData.itemList
-    });
+    
+    this.updateRecord(tID,this);
+    
   },
+
+  updateRecord: function (pID,thisPage) {
+
+
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+
+    const _ = db.command
+    bond.doc(pID).update({
+      data: {
+        DatesChecked: _.push(new Date(Date.now()))
+      },
+      success: function (res) {
+        console.log(res);
+        thisPage.getRecord(pID, bond, thisPage);
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
+
+  getRecord: function (pID, pbond, thisPage){
+
+    pbond.where({
+      _openid: pID
+    }).get({
+      success: function (res) {
+        console.log("getsu")
+        app.globalData.itemList = res.data;
+        thisPage.setData({
+          itemList: app.globalData.itemList
+        })
+      }
+    })
+  }
+
+
 })

@@ -6,11 +6,30 @@ const formatDate = date => {
   return [year, month, day].map(formatNumber).join('/')
 }
 
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
 
+const IsChecked = itemList => {
+  for (var i in itemList) {
+    var item = itemList[i];
+    var lastCheckedDate;
+    if (item.DatesChecked.length > 0) {
+      lastCheckedDate = item.DatesChecked[item.DatesChecked.length - 1];
+    } else {
+      lastCheckedDate = null;
+    }
+
+    item.isChecked = false;
+    console.log(this);
+    if (lastCheckedDate != null && formatDate(lastCheckedDate) == formatDate(new Date())) {
+      item.isChecked = true;
+    }
+    return itemList;
+  }
+}
 
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
@@ -36,4 +55,4 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatDate, showBusy, showSuccess, showModel }
+module.exports = { formatDate, showBusy, showSuccess, showModel, IsChecked}
