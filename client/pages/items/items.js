@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      dateToday: util.formatTime(new Date())
+      dateToday: util.formatDate(new Date())
     })
   },
 
@@ -43,7 +43,7 @@ Page({
       }
       
       item.isChecked = false;  
-      if (lastCheckedDate !=null && util.formatTime(lastCheckedDate) == util.formatTime(new Date())) {
+      if (lastCheckedDate !=null && util.formatDate(lastCheckedDate) == util.formatDate(new Date())) {
         item.isChecked = true;
       }
     }
