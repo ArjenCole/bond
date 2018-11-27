@@ -13,6 +13,7 @@ const formatNumber = n => {
 }
 
 const IsChecked = itemList => {
+
   for (var i in itemList) {
     var item = itemList[i];
     var lastCheckedDate;
@@ -21,14 +22,12 @@ const IsChecked = itemList => {
     } else {
       lastCheckedDate = null;
     }
-
     item.isChecked = false;
-    console.log(this);
     if (lastCheckedDate != null && formatDate(lastCheckedDate) == formatDate(new Date())) {
       item.isChecked = true;
     }
-    return itemList;
   }
+  return itemList;
 }
 
 // 显示繁忙提示

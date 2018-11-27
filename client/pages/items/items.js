@@ -98,12 +98,8 @@ Page({
   },
 
   bindItemCheck: function (e) {
-    //this.setData({ msg: "Hello World" })
-    console.log(e);
     var currentItem = e.currentTarget.dataset.item;
     var tID = currentItem._id;
-    console.log(tID);
-
     
     this.updateRecord(tID,this);
     
@@ -122,7 +118,6 @@ Page({
         DatesChecked: _.push(new Date(Date.now()))
       },
       success: function (res) {
-        console.log(res);
         thisPage.getRecord(pID, bond, thisPage);
       },
       fail: function (e) {
@@ -137,10 +132,9 @@ Page({
       _openid: pID
     }).get({
       success: function (res) {
-        console.log("getsu")
         app.globalData.itemList = res.data;
         thisPage.setData({
-          itemList: app.globalData.itemList
+          itemList: util.IsChecked(app.globalData.itemList)
         })
       }
     })
