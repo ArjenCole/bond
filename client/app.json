@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/addCgi/addCgi",
-    "pages/items/items"
+    "pages/items/items",
+    "pages/item/item"
   ],
   "window": {
     "backgroundTextStyle": "light",

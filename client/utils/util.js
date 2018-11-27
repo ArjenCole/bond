@@ -1,3 +1,4 @@
+
 const formatDate = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -13,7 +14,6 @@ const formatNumber = n => {
 }
 
 const IsChecked = itemList => {
-
   for (var i in itemList) {
     var item = itemList[i];
     var lastCheckedDate;
@@ -28,6 +28,29 @@ const IsChecked = itemList => {
     }
   }
   return itemList;
+}
+
+const TrimItem = pItem =>{
+  var item = deepClone(pItem);
+  item.DateStart = new Date(item.DateStart);
+  item.DateStop = new Date(item.DateStop);
+  for(var i in item.DatesChecked){
+    item.DatesChecked[i] = new Date(item.DatesChecked[i]);
+  }
+
+  var lastCheckedDate;
+  if (item.DatesChecked.length > 0) {
+    lastCheckedDate = item.DatesChecked[item.DatesChecked.length - 1];
+  } else {
+    lastCheckedDate = null;
+  }
+  item.isChecked = false;
+  if (lastCheckedDate != null && formatDate(lastCheckedDate) == formatDate(new Date())) {
+    item.isChecked = true;
+  }
+  item.DateStart = formatDate(item.DateStart);
+  item.DateStop = formatDate(item.DateStop);
+  return item;
 }
 
 // 显示繁忙提示
@@ -54,4 +77,10 @@ var showModel = (title, content) => {
     })
 }
 
-module.exports = { formatDate, showBusy, showSuccess, showModel, IsChecked}
+var deepClone = (a) => {
+  var c = {};
+  c = JSON.parse(JSON.stringify(a));
+  return c;
+}
+
+module.exports = { formatDate, showBusy, showSuccess, showModel, IsChecked, TrimItem}

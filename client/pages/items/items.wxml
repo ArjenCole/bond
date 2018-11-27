@@ -5,7 +5,7 @@
 			<image src="{{item.icon}}"></image>
 		</view-->
 		<view class="weui_cell_bd">
-			<view data-item="{{item}}" bindtap="itemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
+			<view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
 		</view>
 		<button data-item="{{item}}" bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打卡</button>
 		<!--view class="with_arrow"></view-->

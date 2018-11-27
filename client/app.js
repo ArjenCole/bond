@@ -14,6 +14,14 @@ App({
     }
     return tBonds;
   },
+  getItem: function(id){
+    for (var i in this.globalData.itemList) {
+      var item = this.globalData.itemList[i];
+      if (item._id == id) {
+        return item;
+      }
+    }
+  },
   
   globalData: {
     itemList:[]

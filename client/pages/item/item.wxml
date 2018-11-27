@@ -1,0 +1,17 @@
+<!--client/pages/item/item.wxml-->
+<view class="rowGap">
+  <view class="rowGap">
+    <text class="itemNameText">{{item.Text}}</text>
+  </view>
+  <view class="rowGap">
+    <text class="dateText">{{item.DateStart}} ~ {{item.DateStop}}</text>
+  </view>
+  <view class="rowHugeGap">
+    <text class="timesText">{{item.DatesChecked.length}} / {{item.LowLimit}}</text>
+  </view>
+  <view class="rowHugeGap">
+		<button bindtap="itemCheck" wx:if="{{!item.isChecked}}" class="button">打 卡</button>
+		<button class="button">分 享</button>
+		<button class="buttonNeg">放 弃</button>
+  </view>
+</view>

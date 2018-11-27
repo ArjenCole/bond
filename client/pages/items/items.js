@@ -33,29 +33,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("onShow")
-    
-    /*
-    for (var i in app.globalData.itemList) {
-      var item = app.globalData.itemList[i];
-      var lastCheckedDate;
-      if (item.DatesChecked.length>0){
-        lastCheckedDate = item.DatesChecked[item.DatesChecked.length - 1];
-      }else{
-        lastCheckedDate = null;
-      }
-      
-      item.isChecked = false;  
-      console.log(util.formatDate(lastCheckedDate))
-      console.log(util.formatDate(new Date()))
-      
-      if (lastCheckedDate !=null && util.formatDate(lastCheckedDate) == util.formatDate(new Date())) {
-        item.isChecked = true;
-      }
-    }
-    */
-
-
     this.setData({
       itemList: util.IsChecked(app.globalData.itemList)
     })
@@ -99,15 +76,16 @@ Page({
 
   bindItemCheck: function (e) {
     var currentItem = e.currentTarget.dataset.item;
-    var tID = currentItem._id;
-    
-    this.updateRecord(tID,this);
-    
+    this.updateRecord(currentItem._id,this);    
+  },
+  bindItemClick: function (e) {
+    var currentItem = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '../item/item?ID=' + currentItem._id
+    })
   },
 
   updateRecord: function (pID,thisPage) {
-
-
     wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
@@ -125,7 +103,6 @@ Page({
       }
     })
   },
-
   getRecord: function (pID, pbond, thisPage){
 
     pbond.where({
