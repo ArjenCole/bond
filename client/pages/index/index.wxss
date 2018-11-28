@@ -17,14 +17,21 @@
     color: #485D6B;
 }
 
+.bottom50 {
+  position: fixed;
+  bottom: 50px;
+  color: #485D6B;
+}
+.bottom100 {
+  position: fixed;
+  bottom: 100px;
+  color: #485D6B;
+}
 .marginTop20 {
   margin-top: 20px;
   color: #485D6B;
 }
-.marginTop180 {
-  margin-top: 240px;
-  color: #485D6B;
-}
+
 /**page {
     background: #F6F6F6;
     display: flex;
