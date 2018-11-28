@@ -84,7 +84,11 @@ Page({
       url: '../item/item?ID=' + currentItem._id
     })
   },
-
+  bindNewItem: function (e) {
+    wx.navigateTo({
+      url: '../newItem/newItem'
+    })
+  },
   updateRecord: function (pID,thisPage) {
     wx.cloud.init();
     const db = wx.cloud.database();

@@ -9,6 +9,6 @@
   </block>
 <view class="container">
   <view class="bottom50">
-    <text class="plusButton">_+_</text>
+    <text class="plusButton" bindtap="bindNewItem">_+_</text>
   </view>
 </view>
