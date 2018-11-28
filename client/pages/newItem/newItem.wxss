@@ -1,29 +1,20 @@
 /* client/pages/newItem/newItem.wxss */
 
 .section{
-
   display: flex;
-
   flex-direction: row;
-
-  margin: 20rpx;
-
+  margin: 30rpx;
+	font-size: 16px;
 }
 
 .section view{
-
-  margin-right: 20rpx;
-
+  margin-right: 30rpx;
 }
 
 .btn-area{
-
-  margin: 20rpx;
-
+  margin: 30rpx;
 }
 
 button{
-
-  margin: 10rpx 0;
-
+  margin: 30rpx 0;
 }

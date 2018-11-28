@@ -43,10 +43,9 @@
 
 .plusButton {  
   position:relative; 
-  bottom:-2px;
 	text-align: center; 
 	font-size: 35px;
 	background: #79899b;
 	color: #fff;
-	border-radius: 40%;
+	border-radius: 30%;
 }
