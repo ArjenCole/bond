@@ -34,3 +34,19 @@
 	text-align: center;
 	font-size: 15px;
 }
+
+.bottom50 {
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+}
+
+.plusButton {  
+  position:relative; 
+  bottom:-2px;
+	text-align: center; 
+	font-size: 35px;
+	background: #79899b;
+	color: #fff;
+	border-radius: 40%;
+}

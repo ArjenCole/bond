@@ -1,13 +1,14 @@
 <!--client/pages/items/items.wxml-->
-<block wx:for="{{itemList}}"wx:key="itemListId">
-	<view class="weui_cell">
-		<!--view class="weui_cell_hd">
-			<image src="{{item.icon}}"></image>
-		</view-->
-		<view class="weui_cell_bd">
-			<view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
-		</view>
-		<button data-item="{{item}}" bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打卡</button>
-		<!--view class="with_arrow"></view-->
-	</view>
-</block>
+  <block wx:for="{{itemList}}"wx:key="itemListId">
+    <view class="weui_cell">
+      <view class="weui_cell_bd">
+        <view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
+      </view>
+      <button data-item="{{item}}" bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打卡</button>
+    </view>
+  </block>
+<view class="container">
+  <view class="bottom50">
+    <text class="plusButton">_+_</text>
+  </view>
+</view>
