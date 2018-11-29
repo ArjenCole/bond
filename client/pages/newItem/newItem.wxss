@@ -3,7 +3,8 @@
 .section{
   display: flex;
   flex-direction: row;
-  margin: 30rpx;
+  margin: 75rpx;
+	color: #79899b;
 	font-size: 16px;
 }
 
@@ -12,9 +13,15 @@
 }
 
 .btn-area{
-  margin: 30rpx;
+  position: fixed;
+  bottom: 20px;
 }
 
-button{
-  margin: 30rpx 0;
+button{  
+  margin-top: 10px;
+	width: 300px;
+	background: #79899b;
+	color: #fff;
+	text-align: center;
+	font-size: 15px;
 }

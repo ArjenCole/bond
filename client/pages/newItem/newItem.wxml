@@ -7,24 +7,36 @@
   </view>
   <view class="section">
     <view class="section__title">目标次数</view>
-    <input name="Text" placeholder="完成目标所需的最低次数" />
+    <input name="LowLimit" placeholder="完成目标所需的最低次数" />
   </view>
+
+  <view class="section">
+    <view class="section__title">结束日期</view>
+    <picker mode="date" value="{{defaultDate}}" start="{{defaultDate}}" end="2150-09-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{defaultDate}}
+      </view>
+    </picker>
+  </view>
+
   <view class="section">
     <view class="section__title">保证金</view>
-    <input name="Text" placeholder="拟投入保证金数额" />
+    <input name="Bonds" placeholder="拟投入保证金数额" />
   </view>
 
 
 
 
 
+<view class="container">
   <view class="btn-area">
     <button formType="submit">提交</button>
     <button formType="reset">重置</button>
   </view>
+</view>
 
 </form>
 
 <view wx:if="{{isSubmit}}">
-  {{warn ? warn : "是否公开信息："+isPub+"，手机号："+phone+"，密码："+pwd+"，性别："+sex}}
+  {{warn ? warn : "目标名称："+Text+"，目标次数："+LowLimit+"，结束日期："+DateEnd+"，保证金："+Bonds}}
 </view>
