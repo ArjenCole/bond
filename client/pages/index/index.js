@@ -79,6 +79,7 @@ Page({
   },
 
   bindItemsTap: function () {
+    if (app.globalData.userOpenId=="") return;
     wx.navigateTo({
       url: '../items/items'
     })

@@ -36,7 +36,7 @@ Page({
     wx.cloud.init();
     const db = wx.cloud.database();
     const db_bond = db.collection('bond');
-
+    
     db_bond.where({
       _openid: app.globalData.userOpenId,
     }).get().then(res=>{
@@ -45,12 +45,7 @@ Page({
       this.setData({
         itemList: util.IsChecked(app.globalData.itemList),
       })
-
     })
-
-
-
-
   },
 
   /**

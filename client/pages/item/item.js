@@ -10,14 +10,12 @@ Page({
     item: {},
   },
   itemCheck: function () {
-    var dateToday = util.formatDate(new Date());
-
-    var index = this.data.item.index;
-    app.globalData.itemList[index].checkedDates.push(dateToday);
-    app.globalData.itemList[index].ischecked = true;
+    this.data.item.DatesChecked.push(new Date());
+    var tItem = util.TrimItem(this.data.item);
     this.setData({
-      item: app.globalData.itemList[index]
+      item: tItem,
     });
+    console.log("a", this.data.item);
   },
   /**
    * 生命周期函数--监听页面加载

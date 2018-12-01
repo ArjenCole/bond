@@ -31,26 +31,26 @@ const IsChecked = itemList => {
 }
 
 const TrimItem = pItem =>{
-  var item = deepClone(pItem);
-  item.DateStart = new Date(item.DateStart);
-  item.DateStop = new Date(item.DateStop);
-  for(var i in item.DatesChecked){
-    item.DatesChecked[i] = new Date(item.DatesChecked[i]);
+  var tItem = deepClone(pItem);
+  tItem.DateStart = new Date(tItem.DateStart);
+  tItem.DateStop = new Date(tItem.DateStop);
+  for (var i in tItem.DatesChecked){
+    tItem.DatesChecked[i] = new Date(tItem.DatesChecked[i]);
   }
 
   var lastCheckedDate;
-  if (item.DatesChecked.length > 0) {
-    lastCheckedDate = item.DatesChecked[item.DatesChecked.length - 1];
+  if (tItem.DatesChecked.length > 0) {
+    lastCheckedDate = tItem.DatesChecked[tItem.DatesChecked.length - 1];
   } else {
     lastCheckedDate = null;
   }
-  item.isChecked = false;
+  tItem.isChecked = false;
   if (lastCheckedDate != null && formatDate(lastCheckedDate) == formatDate(new Date())) {
-    item.isChecked = true;
+    tItem.isChecked = true;
   }
-  item.DateStart = formatDate(item.DateStart);
-  item.DateStop = formatDate(item.DateStop);
-  return item;
+  tItem.DateStart = formatDate(tItem.DateStart);
+  tItem.DateStop = formatDate(tItem.DateStop);
+  return tItem;
 }
 
 // 显示繁忙提示
