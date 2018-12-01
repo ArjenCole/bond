@@ -52,7 +52,31 @@ Page({
       Text,
       LowLimit,
       Bonds
+    });
+    this.addRecord();
+  },
+  addRecord: function () {
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+    db.collection('bond').add({
+      data: {
+        Text: this.data.Text,
+        DateStart: new Date(Date.now()),
+        DateStop: new Date(this.data.DateEnd),
+        LowLimit: parseInt(this.data.LowLimit),
+        Bonds: parseInt(this.data.Bonds),
+        DatesChecked: []
+      },
+      success: function (res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        console.log(res)
+      }
     })
+  },
+
+  formReset: function () {
+    console.log('form发生了reset事件')
   },
 
   bindDateChange: function (e) {
@@ -62,8 +86,6 @@ Page({
     })
   },
 
-  formReset: function () {
-    console.log('form发生了reset事件')
-  }
+
 
 })

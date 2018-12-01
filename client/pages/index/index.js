@@ -35,6 +35,7 @@ Page({
       qcloud.loginWithCode({
         success: res => {
           this.setData({ userInfo: res, logged: true })
+          app.globalData.userOpenId=this.data.userInfo.openId
           util.showSuccess('登录成功')
         },
         fail: err => {
@@ -46,6 +47,7 @@ Page({
       qcloud.login({
         success: res => {
           this.setData({ userInfo: res, logged: true })
+          app.globalData.userOpenId = this.data.userInfo.openId
           util.showSuccess('登录成功')
         },
         fail: err => {

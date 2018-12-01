@@ -33,9 +33,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      itemList: util.IsChecked(app.globalData.itemList)
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const db_bond = db.collection('bond');
+
+    db_bond.where({
+      _openid: app.globalData.userOpenId,
+    }).get().then(res=>{
+      app.globalData.itemList=res.data;
+      console.log(res.data);
+      this.setData({
+        itemList: util.IsChecked(app.globalData.itemList),
+      })
+
     })
+
+
+
 
   },
 

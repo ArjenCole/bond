@@ -22,8 +22,10 @@ App({
       }
     }
   },
-  
+
+
   globalData: {
-    itemList:[]
+    userOpenId:"",
+    itemList:[],
   }
 })
