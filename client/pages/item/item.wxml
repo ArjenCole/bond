@@ -11,6 +11,7 @@
   </view>
   <view class="rowHugeGap">
 		<button bindtap="itemCheck" wx:if="{{!item.isChecked}}" class="button">打 卡</button>
+		<button bindtap="itemCheck" wx:if="{{item.isOverdue}}" class="button">结 算</button>
 		<button class="button">分 享</button>
 		<button class="buttonNeg">放 弃</button>
   </view>

@@ -5,6 +5,7 @@
         <view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
       </view>
       <button data-item="{{item}}" bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打卡</button>
+      <button data-item="{{item}}" bindtap="bindItemClick" wx:if="{{item.isOverdue}}" class="buttonNeg">过期</button>
     </view>
   </block>
 <view class="container">
