@@ -41,7 +41,6 @@ Page({
       _openid: app.globalData.userOpenId,
     }).get().then(res=>{
       app.globalData.itemList=res.data;
-      console.log(res.data);
       this.setData({
         itemList: util.IsChecked(app.globalData.itemList),
       })

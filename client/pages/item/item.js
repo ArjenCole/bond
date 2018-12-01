@@ -12,10 +12,10 @@ Page({
   itemCheck: function () {
     this.data.item.DatesChecked.push(new Date());
     var tItem = util.TrimItem(this.data.item);
+    this.updateRecord();
     this.setData({
       item: tItem,
     });
-    console.log("a", this.data.item);
   },
   /**
    * 生命周期函数--监听页面加载
@@ -73,5 +73,25 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  updateRecord: function () {
+    var pID = this.data.item._id;
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+
+    const _ = db.command
+    bond.doc(pID).update({
+      data: {
+        DatesChecked: _.push(new Date(Date.now()))
+      },
+      success: function (res) {
+        //thisPage.getRecord(pID, bond, thisPage);
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
 })
