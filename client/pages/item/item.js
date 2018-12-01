@@ -11,7 +11,7 @@ Page({
   },
   itemCheck: function () {
     this.data.item.DatesChecked.push(new Date());
-    var tItem = util.TrimItem(this.data.item);
+    var tItem = util.fullFillItem(this.data.item);
     this.updateRecord();
     this.setData({
       item: tItem,
@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function (e) {
     this.setData({
-      item: util.TrimItem(app.getItem(e.ID)),
+      item: util.fullFillItem(app.getItem(e.ID)),
     });
   },
 

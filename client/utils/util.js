@@ -13,8 +13,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-const IsChecked = itemList => {
+const fullFillItemList = itemList => {
   for (var i in itemList) {
+    var item = itemList[i];
+    itemList[i] = fullFillItem(itemList[i]);
+    /*
     var item = itemList[i];
     var lastCheckedDate;
     if (item.DatesChecked.length > 0) {
@@ -25,12 +28,12 @@ const IsChecked = itemList => {
     item.isChecked = false;
     if (lastCheckedDate != null && formatDate(lastCheckedDate) == formatDate(new Date())) {
       item.isChecked = true;
-    }
+    }*/
   }
   return itemList;
 }
 
-const TrimItem = pItem =>{
+const fullFillItem = pItem =>{
   var tItem = deepClone(pItem);
   tItem.DateStart = new Date(tItem.DateStart);
   tItem.DateStop = new Date(tItem.DateStop);
@@ -83,4 +86,4 @@ var deepClone = (a) => {
   return c;
 }
 
-module.exports = { formatDate, showBusy, showSuccess, showModel, IsChecked, TrimItem}
+module.exports = { formatDate, showBusy, showSuccess, showModel, fullFillItemList, fullFillItem}

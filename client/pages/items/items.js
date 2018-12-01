@@ -42,7 +42,7 @@ Page({
     }).get().then(res=>{
       app.globalData.itemList=res.data;
       this.setData({
-        itemList: util.IsChecked(app.globalData.itemList),
+        itemList: util.fullFillItemList(app.globalData.itemList),
       })
     })
   },
@@ -123,7 +123,7 @@ Page({
       success: function (res) {
         app.globalData.itemList = res.data;
         thisPage.setData({
-          itemList: util.IsChecked(app.globalData.itemList)
+          itemList: util.fullFillItemList(app.globalData.itemList)
         })
       }
     })
