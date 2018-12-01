@@ -12,6 +12,12 @@
   margin-right: 30rpx;
 }
 
+.warning{
+  margin: 75rpx;
+	font-size: 14px;
+	color: #d81919;
+}
+
 .btn-area{
   position: fixed;
   bottom: 20px;

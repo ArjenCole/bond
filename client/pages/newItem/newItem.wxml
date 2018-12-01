@@ -3,28 +3,30 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class="section">
     <view class="section__title">目标名称</view>
-    <input name="Text" placeholder="目标名称" />
+    <input name="Text" placeholder="新目标" />
   </view>
   <view class="section">
     <view class="section__title">目标次数</view>
-    <input name="LowLimit" placeholder="完成目标所需的最低次数" />
+    <input name="LowLimit" type="number" placeholder="完成目标所需的最低次数" />
   </view>
 
   <view class="section">
     <view class="section__title">结束日期</view>
-    <picker mode="date" value="{{defaultDate}}" start="{{defaultDate}}" end="2150-09-01" bindchange="bindDateChange">
+    <picker mode="date" value="{{DateEnd}}" start="{{defaultDate}}" end="2150-09-01" bindchange="bindDateChange">
       <view class="picker">
-        {{defaultDate}}
+        {{DateEnd}}
       </view>
     </picker>
   </view>
 
   <view class="section">
-    <view class="section__title">保证金</view>
-    <input name="Bonds" placeholder="拟投入保证金数额" />
+    <text class="section__title" space="ensp">保 证 金  </text>
+    <input name="Bonds" type="number" placeholder="拟投入保证金数额" />
   </view>
 
-
+<view wx:if="{{isSubmit}}" class="warning">
+  {{warn ? warn : "目标名称："+Text+"，目标次数："+LowLimit+"，结束日期："+DateEnd+"，保证金："+Bonds}}
+</view>
 
 
 
@@ -37,6 +39,4 @@
 
 </form>
 
-<view wx:if="{{isSubmit}}">
-  {{warn ? warn : "目标名称："+Text+"，目标次数："+LowLimit+"，结束日期："+DateEnd+"，保证金："+Bonds}}
-</view>
+
