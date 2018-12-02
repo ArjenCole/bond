@@ -10,6 +10,6 @@
   </block>
 <view class="container">
   <view class="bottom50">
-    <text decode="{{true}}" space="{{true}}" class="plusButton" bindtap="bindNewItem">&nbsp;+&nbsp;</text>
+    <text space="ensp" class="plusButton" bindtap="bindNewItem">  +  </text>
   </view>
 </view>
