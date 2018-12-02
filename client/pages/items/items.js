@@ -84,7 +84,7 @@ Page({
 
   bindItemCheck: function (e) {
     var currentItem = e.currentTarget.dataset.item;
-    this.updateRecord(currentItem._id,this);    
+    this.updateRecord_check(currentItem._id,this);    
   },
   bindItemClick: function (e) {
     var currentItem = e.currentTarget.dataset.item;
@@ -97,7 +97,9 @@ Page({
       url: '../newItem/newItem'
     })
   },
-  updateRecord: function (pID,thisPage) {
+
+
+  updateRecord_check: function (pID,thisPage) {
     wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
@@ -115,8 +117,25 @@ Page({
       }
     })
   },
-  getRecord: function (pID, pbond, thisPage){
+  updateRecord_balance: function (pID, thisPage) {
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
 
+    const _ = db.command
+    bond.doc(pID).update({
+      data: {
+        Bonds:0,
+      },
+      success: function (res) {
+        thisPage.getRecord(pID, bond, thisPage);
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
+  getRecord: function (pID, pbond, thisPage){
     pbond.where({
       _openid: pID
     }).get({
@@ -127,7 +146,31 @@ Page({
         })
       }
     })
-  }
+  },
 
+  bindItemBalance: function (e) {
+    var that = this;
+    var currentItem = e.currentTarget.dataset.item;
+    var doneTimes = currentItem.DatesChecked.length;
+    var ending = "";
+    if (doneTimes >= currentItem.LowLimit){
+      ending = "成功完成既定目标，能够获得全额保证金退还，共计退还" + currentItem.Bonds + "元";
+    }
+    else{
+      ending = "未能完成既定目标，根据打卡次数比例，共计退还保证金" + currentItem.Bonds * doneTimes / currentItem.LowLimit + "元";
+    }
+    wx.showModal({
+      title: '结算提示',
+      content: '此目标期内应完成'+currentItem.LowLimit+"次，"+ending,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.updateRecord_balance(currentItem._id, that);              
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  }
 
 })
