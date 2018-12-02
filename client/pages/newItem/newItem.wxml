@@ -25,7 +25,7 @@
   </view>
 
 <view wx:if="{{isSubmit}}" class="warning">
-  {{warn ? warn : "目标名称："+Text+"，目标次数："+LowLimit+"，结束日期："+DateEnd+"，保证金："+Bonds}}
+  {{warn ? warn : ""}}
 </view>
 
 

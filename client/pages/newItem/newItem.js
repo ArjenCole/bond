@@ -16,7 +16,7 @@ Page({
   },
 
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    //console.log('form发生了submit事件，携带数据为：', e.detail.value);
     let { Text, LowLimit, Bonds } = e.detail.value;
     if (!Text || !LowLimit || !Bonds) {
       this.setData({
@@ -70,7 +70,8 @@ Page({
       },
       success: function (res) {
         // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        console.log(res)
+        //console.log(res)    
+        wx.navigateBack()
       }
     })
   },
@@ -80,7 +81,7 @@ Page({
   },
 
   bindDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    //console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       DateEnd: e.detail.value
     })
