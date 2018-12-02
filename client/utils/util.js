@@ -55,6 +55,7 @@ const fullFillItem = pItem =>{
   tItem.isOverdue = false;
   if (tItem.DateStop < new Date()){
     tItem.isOverdue = true;
+    tItem.isChecked = true;
   }
 
   tItem.DateStart = formatDate(tItem.DateStart);
