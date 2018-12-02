@@ -58,6 +58,11 @@ const fullFillItem = pItem =>{
     tItem.isChecked = true;
   }
 
+  tItem.isDone = false;
+  if (pItem.Bonds == 0){
+    tItem.isDone = true;
+  }
+
   tItem.DateStart = formatDate(tItem.DateStart);
   tItem.DateStop = formatDate(tItem.DateStop);
   return tItem;

@@ -1,6 +1,6 @@
 <!--client/pages/items/items.wxml-->
   <block wx:for="{{itemList}}"wx:key="itemListId">
-    <view class="weui_cell">
+    <view class="weui_cell" wx:if="{{!item.isDone}}">
       <view class="weui_cell_bd">
         <view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
       </view>
