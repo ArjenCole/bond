@@ -20,7 +20,7 @@
   </view>
 
   <view class="section">
-    <text class="section__title" space="ensp">保 证 金  </text>
+    <text class="section__title" space="ensp">保  证  金   </text>
     <input name="Bonds" type="number" placeholder="拟投入保证金数额" />
   </view>
 
