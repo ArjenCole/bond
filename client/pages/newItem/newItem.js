@@ -77,7 +77,10 @@ Page({
   },
 
   formReset: function () {
-    console.log('form发生了reset事件')
+    console.log('form发生了reset事件');
+    this.setData({
+      DateEnd: util.formatDate(new Date()),
+    })
   },
 
   bindDateChange: function (e) {
