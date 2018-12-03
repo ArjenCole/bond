@@ -102,6 +102,31 @@ Page({
     })
   },
 
+  bindItemQuit: function () {
+    var that = this;
+    var currentItem = this.data.item;
+    var doneTimes = currentItem.DatesChecked.length;
+    var ending = "";
+    if (doneTimes >= currentItem.LowLimit) {
+      ending = "已经成功完成既定目标，能够获得全额保证金退还，共计退还" + currentItem.Bonds + "元；";
+    }
+    else {
+      ending = "尚未能完成既定目标，若现在放弃，只能能退还保证金" + currentItem.Bonds * doneTimes / currentItem.LowLimit + "元；";
+    }
+    wx.showModal({
+      title: '提示',
+      content: '此目标期内应完成' + currentItem.LowLimit + "次，当前" + ending + "确定要放弃目标吗？",
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.updateRecord_balance(currentItem._id, that);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
   updateRecord: function () {
     var pID = this.data.item._id;
     wx.cloud.init();
