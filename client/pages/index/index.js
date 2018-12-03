@@ -18,9 +18,9 @@ Page({
 
   onLoad: function(){
     this.autoGetUserInfo();
-    this.autoGetBonds();
   },
   onShow: function () {
+    this.autoGetBonds();
   },
 
   // 获得用户信息
