@@ -10,8 +10,8 @@
     <text class="timesText">{{item.DatesChecked.length}} / {{item.LowLimit}}</text>
   </view>
   <view class="rowHugeGap">
-		<button bindtap="itemCheck" wx:if="{{!item.isChecked}}" class="button">打 卡</button>
-		<button bindtap="itemCheck" wx:if="{{item.isOverdue}}" class="button">结 算</button>
+		<button bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打 卡</button>
+		<button bindtap="bindItemBalance" wx:if="{{item.isOverdue}}" class="button">结 算</button>
 		<button class="button">分 享</button>
 		<button class="buttonNeg">放 弃</button>
   </view>

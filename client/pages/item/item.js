@@ -9,14 +9,7 @@ Page({
   data: {
     item: {},
   },
-  itemCheck: function () {
-    this.data.item.DatesChecked.push(new Date());
-    var tItem = util.fullFillItem(this.data.item);
-    this.updateRecord();
-    this.setData({
-      item: tItem,
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -75,6 +68,40 @@ Page({
 
   },
 
+  bindItemCheck: function () {
+    this.data.item.DatesChecked.push(new Date());
+    var tItem = util.fullFillItem(this.data.item);
+    this.updateRecord();
+    this.setData({
+      item: tItem,
+    });
+  },
+
+  bindItemBalance: function () {
+    var that = this;
+    var currentItem = this.data.item;
+    var doneTimes = currentItem.DatesChecked.length;
+    var ending = "";
+    if (doneTimes >= currentItem.LowLimit) {
+      ending = "成功完成既定目标，能够获得全额保证金退还，共计退还" + currentItem.Bonds + "元";
+    }
+    else {
+      ending = "未能完成既定目标，根据打卡次数比例，共计退还保证金" + currentItem.Bonds * doneTimes / currentItem.LowLimit + "元";
+    }
+    wx.showModal({
+      title: '结算提示',
+      content: '此目标期内应完成' + currentItem.LowLimit + "次，" + ending,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          that.updateRecord_balance(currentItem._id, that);
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
   updateRecord: function () {
     var pID = this.data.item._id;
     wx.cloud.init();
@@ -88,6 +115,24 @@ Page({
       },
       success: function (res) {
         //thisPage.getRecord(pID, bond, thisPage);
+      },
+      fail: function (e) {
+        console.log(e);
+      }
+    })
+  },
+  updateRecord_balance: function (pID, thisPage) {
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    const bond = db.collection('bond');
+
+    const _ = db.command
+    bond.doc(pID).update({
+      data: {
+        Bonds: 0,
+      },
+      success: function (res) {
+        wx.navigateBack()
       },
       fail: function (e) {
         console.log(e);
