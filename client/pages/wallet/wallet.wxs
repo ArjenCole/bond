@@ -1,0 +1,12 @@
+//用于wxss中的函数
+// 支持es4语法
+var filter = {
+  NtoFixed: function (value) {
+    return value.toFixed(2)
+  }
+}
+
+// 导出对外暴露的属性
+module.exports = {
+  NtoFixed: filter.NtoFixed
+}

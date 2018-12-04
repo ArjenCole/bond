@@ -84,7 +84,12 @@ Page({
       url: '../items/items'
     })
   },
-
+  bindWalletTap: function () {
+    if (app.globalData.userOpenId == "") return;
+    wx.navigateTo({
+      url: '../wallet/wallet'
+    })
+  },
   bindaddRecord: function () {
     wx.cloud.init();
     const db = wx.cloud.database();

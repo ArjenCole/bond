@@ -4,7 +4,8 @@
     "pages/addCgi/addCgi",
     "pages/items/items",
     "pages/item/item",
-    "pages/newItem/newItem"
+    "pages/newItem/newItem",
+    "pages/wallet/wallet"
   ],
   "window": {
     "backgroundTextStyle": "light",

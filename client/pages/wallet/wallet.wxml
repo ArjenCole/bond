@@ -1,0 +1,18 @@
+<!--client/pages/wallet/wallet.wxml--> 
+<wxs module="wallet" src="./wallet.wxs"></wxs>
+<view class='history-table-wrap'>
+    <view class="table">
+      <view class="tr">
+          <view class="th th1">目标</view>
+          <view class="th th3">起讫时间</view>
+          <view class="th th2">次数</view>
+          <view class="th th3">保证金</view>
+      </view>
+      <view class="tr" wx:for="{{itemList}}"wx:key="itemListId">
+          <view class="td td1">{{item.Text}}</view>
+          <view class="td td3">{{item.DateStart}} ~ {{item.DateStop}}</view>
+          <view class="td td2">{{item.DatesChecked.length}}/{{item.LowLimit}}</view>
+          <view class="td td3">{{wallet.NtoFixed(item.Bonds/item.LowLimit*item.DatesChecked.length)}}/{{item.Bonds}}</view>
+      </view>
+    </view>
+ </view>
