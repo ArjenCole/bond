@@ -38,7 +38,7 @@ Page({
     const db_bond = db.collection('bond');
     
     db_bond.where({
-      _openid: app.globalData.userOpenId,
+      _openid: app.globalData.userInfo.openId,
     }).get().then(res=>{
       app.globalData.itemList=res.data;
       this.setData({

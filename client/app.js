@@ -28,7 +28,7 @@ App({
 
 
   globalData: {
-    userOpenId:"",
+    userInfo: {},
     itemList:[],
   }
 })
