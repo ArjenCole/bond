@@ -71,9 +71,8 @@ Page({
 
     return {
       title: '测试小程序',//分享内容
-      path: '/pages/index/index?id=' + app.globalData.userOpenId,//分享地址
+      path: '/pages/approve/approve?_openId=' + app.globalData.userOpenId + "&_id=" + this.data.item._id,//分享地址
       //imageUrl: '/images/img_share.png',//分享图片
-
     }
   },
 

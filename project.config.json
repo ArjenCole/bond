@@ -34,9 +34,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "分享到群",
-					"pathName": "pages/index/index",
-					"query": "",
+					"name": "测试群0",
+					"pathName": "pages/approve/approve",
+					"query": "_openId=oQY-45e94iCSVCupHsX5aFKzIPwo&_id=XANAmFq1Q-zGexU9",
 					"scene": "1044",
 					"shareInfo": {
 						"groupName": "测试模拟群0",

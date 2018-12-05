@@ -5,7 +5,8 @@
     "pages/items/items",
     "pages/item/item",
     "pages/newItem/newItem",
-    "pages/wallet/wallet"
+    "pages/wallet/wallet",
+    "pages/approve/approve"
   ],
   "window": {
     "backgroundTextStyle": "light",
