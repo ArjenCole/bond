@@ -1,2 +1,24 @@
 <!--client/pages/approve/approve.wxml-->
-<text>client/pages/approve/approve.wxml</text>
+<view class="rowGap">
+  <view class="rowGap">
+    <text class="itemNameText">是否批准 {{friendName}} 的补卡申请?</text>
+  </view>
+  <view class="userinfo">
+    <image
+      class="userinfo-avatar"
+      src="{{friendAvatarUrl}}"
+      background-size="cover"
+    ></image>
+  </view>
+  <view class="rowGap">
+    <text class="dateText">补卡目标： </text>
+    <text class="dateText">{{itemText}}</text>
+  </view>
+  <view class="rowHugeGap">
+		<button bindtap="bindItemCheck" class="button">批 准</button>
+		<button bindtap="bindItemBalance" class="buttonNeg">否 决</button>
+  </view>
+  <view class="rowHugeGap">
+		<button class="buttonStart">开始我的bond之旅</button>
+  </view>
+</view>

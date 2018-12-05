@@ -68,10 +68,12 @@ Page({
     wx.showShareMenu({
       withShareTicket: true,
     })
+    console.log('/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&Text=" + this.data.item.Text+ "&AvatarUrl=" + app.globalData.userInfo.avatarUrl);
+    //console.log(app.globalData.userInfo);
 
     return {
       title: '测试小程序',//分享内容
-      path: '/pages/approve/approve?_openId=' + app.globalData.userInfo.openId + "&_id=" + this.data.item._id,//分享地址
+      path: '/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&Text=" + this.data.item.Text + "&AvatarUrl=" + app.globalData.userInfo.avatarUrl,//分享地址
       //imageUrl: '/images/img_share.png',//分享图片
     }
   },

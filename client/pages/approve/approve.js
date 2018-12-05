@@ -10,6 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    friendName: "",
+    friendAvatarUrl:"",
+    itemText:"",
+    itemId:"",
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -20,6 +24,12 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
+    this.setData({
+      friendName: options.userName,
+      friendAvatarUrl: options.AvatarUrl,
+      itemText: options.Text,
+      itemId: options._id,
+    })
     this.autoGetUserInfo();
   },
 

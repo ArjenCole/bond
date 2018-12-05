@@ -1,1 +1,74 @@
 /* client/pages/approve/approve.wxss */
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.itemNameText {
+  margin-top: 10px;
+  align-items: center;
+  color: #485D6B;
+	font-size: 30px;
+}
+.dateText{  
+  margin-top: 10px;
+  align-items: center;
+  color: rgba(72, 93, 107, 0.747);
+	font-size: 18px;
+}
+.timesText{  
+	width: 100px;
+	height: 100px;
+  align-items: center;
+  color: #485D6B;
+	font-size: 20px;
+}
+
+.rowGap {
+  margin-top: 10px;
+  color: #485D6B;
+  align-items: center;
+	text-align: center;
+}
+.rowMidGap {
+  margin-top: 50px;
+  color: #485D6B;
+  align-items: center;
+	text-align: center;
+}
+.rowHugeGap {
+  margin-top: 100px;
+  color: #485D6B;
+  align-items: center;
+	text-align: center;
+}
+
+.button {
+  margin-top: 10px;
+	width: 260px;
+	background: #79899b;
+	color: #fff;
+	text-align: center;
+	font-size: 15px;
+}
+.buttonNeg {
+  margin-top: 10px;
+	width: 260px;
+	background: #fff;
+	color: #79899b;
+	text-align: center;
+	font-size: 15px;
+}
+.buttonStart {
+  margin-top: 10px;
+	width: 260px;
+	background: #485D6B;
+	color: #fff;
+	text-align: center;
+	font-size: 24px;
+}

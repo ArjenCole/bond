@@ -36,7 +36,7 @@
 					"id": 0,
 					"name": "测试群0",
 					"pathName": "pages/approve/approve",
-					"query": "_openId=oQY-45e94iCSVCupHsX5aFKzIPwo&_id=XANAmFq1Q-zGexU9",
+					"query": "userName=金鹤&_id=XANAmFq1Q-zGexU9&Text=小程序云开发&AvatarUrl=https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83epSHauUIhkw5zySfxRwnDsjWjl9zUvrQ3ejc5Ism4oRMKa2Zu4XVOJiaddltklYOExtPwI7Wnow8AQ/132",
 					"scene": "1044",
 					"shareInfo": {
 						"groupName": "测试模拟群0",
