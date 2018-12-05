@@ -7,7 +7,7 @@ App({
     qcloud.setLoginUrl(config.service.loginUrl)
   },
   onShow: function (options) {
-    console.log("app",options);
+    //console.log("app",options);
   },
 
   sumBonds: function(){

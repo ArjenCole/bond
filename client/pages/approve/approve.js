@@ -23,7 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    //console.log(options);
     this.setData({
       friendName: options.userName,
       friendAvatarUrl: options.AvatarUrl,
@@ -82,7 +82,13 @@ Page({
 
   },
 
-    // 获得用户信息----此处不采用腾讯云的方式获得
+  bindStartTap: function () {
+    wx.redirectTo({
+      url: '/pages/index/index'
+    })
+  },
+  
+  // 获得用户信息----此处不采用腾讯云的方式获得
   autoGetUserInfo: function () {
     if (app.globalData.userInfo) {
       this.setData({

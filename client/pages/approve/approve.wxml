@@ -19,6 +19,6 @@
 		<button bindtap="bindItemBalance" class="buttonNeg">否 决</button>
   </view>
   <view class="rowHugeGap">
-		<button class="buttonStart">开始我的bond之旅</button>
+		<button bindtap="bindStartTap" class="buttonStart">开始我的bond之旅</button>
   </view>
 </view>
