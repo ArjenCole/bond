@@ -65,7 +65,16 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    wx.showShareMenu({
+      withShareTicket: true,
+    })
 
+    return {
+      title: '测试小程序',//分享内容
+      path: '/pages/index/index?id=' + app.globalData.userOpenId,//分享地址
+      //imageUrl: '/images/img_share.png',//分享图片
+
+    }
   },
 
   bindItemCheck: function () {

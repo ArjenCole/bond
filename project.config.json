@@ -13,5 +13,38 @@
 	},
 	"appid": "wx00dd65d70f19dcec",
 	"projectname": "wafer%20php%20demo",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "分享到群",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": "1044",
+					"shareInfo": {
+						"groupName": "测试模拟群0",
+						"shareName": "LwfJTN2zzrej4x08NQldbgyeD3Ikrri-y-4w1TKNsZo@cr4dev",
+						"shareKey": "lVpJmVe5M-jspoMmm_g036oMQKCMNbGVcmkuU-06uHXnK8hOdLXBmCe-g7F7Ddl5VeDjKqNZNbJNtSLEPy6HHw~~"
+					}
+				}
+			]
+		}
+	}
 }
