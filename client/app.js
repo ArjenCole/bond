@@ -28,7 +28,7 @@ App({
 
 
   globalData: {
-    userInfo: {},
+    userInfo: null,
     itemList:[],
   }
 })

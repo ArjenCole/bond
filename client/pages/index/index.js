@@ -20,7 +20,7 @@ Page({
     this.autoGetUserInfo();
   },
   onShow: function () {
-    this.autoGetBonds();
+    //this.autoGetBonds();
   },
 
   // 获得用户信息
@@ -79,13 +79,15 @@ Page({
   },
 
   bindItemsTap: function () {
-    if (app.globalData.userInfo.openId=="") return;
+    var tmp = app.globalData.userInfo; 
+    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
     wx.navigateTo({
       url: '../items/items'
     })
   },
   bindWalletTap: function () {
-    if (app.globalData.userInfo.openId == "") return;
+    var tmp = app.globalData.userInfo;
+    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
     wx.navigateTo({
       url: '../wallet/wallet'
     })
