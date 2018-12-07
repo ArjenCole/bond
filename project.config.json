@@ -11,8 +11,8 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"appid": "wx00dd65d70f19dcec",
-	"projectname": "wafer%20php%20demo",
+	"appid": "wx1e6498038c6f6694",
+	"projectname": "bond打卡",
 	"condition": {
 		"search": {
 			"current": -1,
