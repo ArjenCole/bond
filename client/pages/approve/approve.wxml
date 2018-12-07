@@ -15,8 +15,8 @@
     <text class="dateText">{{itemText}}</text>
   </view>
   <view class="rowHugeGap" wx:if="{{!approved}}">
-		<button bindtap="bindItemCheck" class="button">批 准</button>
-		<button bindtap="bindItemBalance" class="buttonNeg">否 决</button>
+		<button bindtap="bindApproveTap" class="button">批 准</button>
+		<button bindtap="bindDenyTap" class="buttonNeg">否 决</button>
   </view>
 	<button bindtap="bindStartTap" class="buttonStart">开始我的bond之旅</button>
 </view>

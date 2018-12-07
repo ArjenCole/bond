@@ -109,12 +109,42 @@ Page({
     })
   },
 
+  bindDenyTap: function () {
+    var tName = this.data.friendName;
+    var that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定要否决 ' + tName + ' 的补卡申请么？',
+      confirmColor: '#79899b',
+      success: function (res) {
+        if (res.confirm) {
+          wx.showModal({
+            title: '提示',
+            content: '已否决 ' + tName + ' 的补卡申请，将跳转到你的bond首页',
+            showCancel: false,
+            confirmColor: '#79899b',
+            success: function (res) {
+              if (res.confirm) {
+                that.toIndex();
+              } 
+            }
+          })
+        } else if (res.cancel) {
+          
+        }
+      }
+    })
+  },
+
   bindStartTap: function () {
+    this.toIndex();
+  },
+  
+  toIndex: function () {
     wx.redirectTo({
       url: '/pages/index/index?logged=true'
     })
   },
-  
   
   autoGetUserInfo: function () {
     if (this.data.logged) return
