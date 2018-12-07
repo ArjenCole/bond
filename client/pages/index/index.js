@@ -19,18 +19,17 @@ Page({
   onLoad: function(e){
     this.data.logged = e.logged;
     if (e.logged) {
-      this.setData({ userInfo: app.globalData.userInfo })
+      this.setData({ 
+        userInfo: app.globalData.userInfo,
+        logged: e.logged
+      })
     }else{
       this.autoGetUserInfo();
     }
     
   },
   onShow: function () {
-    console.log(app.globalData.userInfo);    
-    this.setData({
-       userInfo: app.globalData.userInfo
-    })
-
+    //this.autoGetBonds();
   },
 
   // 获得用户信息
