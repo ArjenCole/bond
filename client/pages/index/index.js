@@ -16,11 +16,21 @@ Page({
     bonds:0
   },
 
-  onLoad: function(){
-    this.autoGetUserInfo();
+  onLoad: function(e){
+    this.data.logged = e.logged;
+    if (e.logged) {
+      this.setData({ userInfo: app.globalData.userInfo })
+    }else{
+      this.autoGetUserInfo();
+    }
+    
   },
   onShow: function () {
-    //this.autoGetBonds();
+    console.log(app.globalData.userInfo);    
+    this.setData({
+       userInfo: app.globalData.userInfo
+    })
+
   },
 
   // 获得用户信息
