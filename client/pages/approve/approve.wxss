@@ -10,10 +10,9 @@
   border-radius: 50%;
 }
 .itemNameText {
-  margin-top: 10px;
   align-items: center;
   color: #485D6B;
-	font-size: 30px;
+	font-size: 28px;
 }
 .dateText{  
   margin-top: 10px;
@@ -36,7 +35,7 @@
 	text-align: center;
 }
 .rowMidGap {
-  margin-top: 50px;
+  margin-top: 30px;
   color: #485D6B;
   align-items: center;
 	text-align: center;
@@ -65,7 +64,11 @@
 	font-size: 15px;
 }
 .buttonStart {
-  margin-top: 10px;
+  position: absolute;
+  bottom: 20px;
+  left:50%;
+  margin-left:-130px;
+
 	width: 260px;
 	background: #485D6B;
 	color: #fff;
