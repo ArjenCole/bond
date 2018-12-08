@@ -30,7 +30,6 @@ Page({
     this.setData({
       friendName: options.userName,
       friendAvatarUrl: options.AvatarUrl,
-      itemText: options.Text,
       itemId: options._id,
     })
     this.autoGetUserInfo();
@@ -195,10 +194,10 @@ Page({
       _id: this.data.itemId
     }).get({
       success: function (res) {
-        console.log(util.formatDate(new Date()) + that.data.userInfo.openId);
         var tItem = res.data[0];
         that.setData({
-          approved: that.contains(tItem.Approvals, util.formatDate(new Date()) + that.data.userInfo.openId)
+          approved: that.contains(tItem.Approvals, util.formatDate(new Date()) + that.data.userInfo.openId),                
+          itemText: tItem.Text,
         })
       }
     })

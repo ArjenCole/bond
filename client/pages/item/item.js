@@ -64,16 +64,30 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function (ops) {
     wx.showShareMenu({
       withShareTicket: true,
     })
-    console.log('/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&Text=" + this.data.item.Text+ "&AvatarUrl=" + app.globalData.userInfo.avatarUrl);
-    //console.log(app.globalData.userInfo);
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      var tTop = ops.target.offsetTop;
+      var tLeft = ops.target.offsetLeft;
+      var tTitle = ""; var tPath = "";
+      if (tLeft > 100) { tTop = tTop - 50 };
+      if (tTop < 400){
+        tTitle = app.globalData.userInfo.nickName + '的补卡申请等待你审批';
+        tPath = '/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&AvatarUrl=" + app.globalData.userInfo.avatarUrl;//分享地址
+      } else {
+        tTitle = '我在bond打卡，你也快来吧~！';
+        tPath = '/pages/index/index'        
+      }
+    }
+    console.log(tPath);
+
 
     return {
-      title: '测试小程序',//分享内容
-      path: '/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&Text=" + this.data.item.Text + "&AvatarUrl=" + app.globalData.userInfo.avatarUrl,//分享地址
+      title: tTitle,//分享内容
+      path: tPath,//分享地址
       //imageUrl: '/images/img_share.png',//分享图片
     }
   },
