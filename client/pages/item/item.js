@@ -74,6 +74,7 @@ Page({
       var tLeft = ops.target.offsetLeft;
       var tTitle = ""; var tPath = "";
       if (tLeft > 100) { tTop = tTop - 50 };
+      if (this.data.item.isChecked & !this.data.item.isOverdue) { tTop = tTop + 100;};
       if (tTop < 400){
         tTitle = app.globalData.userInfo.nickName + '的补卡申请等待你审批';
         tPath = '/pages/approve/approve?userName=' + app.globalData.userInfo.nickName + "&_id=" + this.data.item._id + "&AvatarUrl=" + app.globalData.userInfo.avatarUrl;//分享地址
