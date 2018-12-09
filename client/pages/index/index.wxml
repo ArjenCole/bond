@@ -12,9 +12,11 @@
             <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
         </view>
     </view>
-
+  <view class="bottom100" wx:if="{{!logged}}">
+    <text space="ensp" class="textFontSize" >欢 迎 来 到 bond 打 卡</text>
+  </view>
   <view class="marginTop20" wx:if="{{logged}}">
-    <text bindtap="bindaddRecord" space="emsp" class="textFontSize" >保证金: {{bonds}}</text>
+    <text bindtap="bindWalletTap" space="emsp" class="textFontSize" >保证金: {{bonds}}</text>
   </view>
   <view class="bottom100" wx:if="{{logged}}">
     <text bindtap="bindItemsTap" space="emsp" class="textFontSize">目 标 管 理</text>
