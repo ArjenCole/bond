@@ -66,7 +66,8 @@ Page({
         DateStop: new Date(this.data.DateEnd),
         LowLimit: parseInt(this.data.LowLimit),
         Bonds: parseInt(this.data.Bonds),
-        DatesChecked: []
+        DatesChecked: [],
+        Approvals: []
       },
       success: function (res) {
         // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id

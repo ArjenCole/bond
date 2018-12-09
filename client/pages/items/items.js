@@ -89,14 +89,15 @@ Page({
   bindItemBalance: function (e) {
     var that = this;
     var currentItem = e.currentTarget.dataset.item;
-    var doneTimes = currentItem.DatesChecked.length;
     var ending = "";
+    var doneTimes = currentItem.DatesChecked.length;
     if (doneTimes >= currentItem.LowLimit) {
-      ending = "成功完成既定目标，能够获得全额保证金退还，共计退还" + currentItem.Bonds + "元";
+      ending = "成功完成既定目标，能够获得全额保证金退还，共计退还" + util.refund(currentItem) + "元";
     }
     else {
-      ending = "未能完成既定目标，根据打卡次数比例，共计退还保证金" + currentItem.Bonds * doneTimes / currentItem.LowLimit + "元";
+      ending = "未能完成既定目标，根据打卡次数比例，共计退还保证金" + util.refund(currentItem) + "元";
     }
+
     wx.showModal({
       title: '结算提示',
       content: '此目标期内应完成' + currentItem.LowLimit + "次，" + ending,

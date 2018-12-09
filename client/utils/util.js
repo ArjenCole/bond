@@ -7,7 +7,6 @@ const formatDate = date => {
   return [year, month, day].map(formatNumber).join('-')
 }
 
-
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -68,6 +67,16 @@ const fullFillItem = pItem =>{
   return tItem;
 }
 
+const refund = pItem =>{
+  var doneTimes = pItem.DatesChecked.length + pItem.Approvals.length;
+  var result;
+  if(doneTimes >= pItem.LowLimit){
+    return pItem.Bonds;
+  }else{
+    return (pItem.Bonds * (doneTimes) / pItem.LowLimit).toFixed(2);
+  }  
+}
+
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
     title: text,
@@ -98,4 +107,4 @@ var deepClone = (a) => {
   return c;
 }
 
-module.exports = { formatDate, showBusy, showSuccess, showModel, fullFillItemList, fullFillItem}
+module.exports = { formatDate, showBusy, showSuccess, showModel, fullFillItemList, fullFillItem, refund}

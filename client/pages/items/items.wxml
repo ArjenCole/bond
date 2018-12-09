@@ -2,7 +2,7 @@
   <block wx:for="{{itemList}}"wx:key="itemListId">
     <view class="weui_cell" wx:if="{{!item.isDone}}">
       <view class="weui_cell_bd">
-        <view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length}} / {{item.LowLimit}}) </view>
+        <view data-item="{{item}}" bindtap="bindItemClick" class="weui_cell_bd_p"> {{item.Text}} ({{item.DatesChecked.length+item.Approvals.length}} / {{item.LowLimit}}) </view>
       </view>
       <button data-item="{{item}}" bindtap="bindItemCheck" wx:if="{{!item.isChecked}}" class="button">打卡</button>
       <button data-item="{{item}}" bindtap="bindItemBalance" wx:if="{{item.isOverdue}}" class="buttonNeg">结算</button>
