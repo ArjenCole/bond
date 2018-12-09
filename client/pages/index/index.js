@@ -24,7 +24,7 @@ Page({
         logged: e.logged
       })
     }else{
-      this.autoGetUserInfo();
+      //this.autoGetUserInfo();
     }
     
   },
@@ -145,7 +145,7 @@ Page({
 //==============================================================================================================
 
   bindGetUserInfo: function () {
-    //this.autoGetUserInfo()
+    this.autoGetUserInfo()
   },
   // 切换是否带有登录态
   switchRequestMode: function (e) {
