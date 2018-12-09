@@ -13,9 +13,9 @@
         </view-->
     </view>
 
-  <!--view class="marginTop20">
+  <view class="marginTop20">
     <text bindtap="bindaddRecord" space="emsp" class="textFontSize" >保证金: {{bonds}}</text>
-  </view-->
+  </view>
   <view class="bottom100">
     <text bindtap="bindItemsTap" space="emsp" class="textFontSize">目 标 管 理</text>
   </view>

@@ -29,7 +29,7 @@ Page({
     
   },
   onShow: function () {
-    //this.autoGetBonds();
+    this.autoGetBonds();
   },
 
   // 获得用户信息
@@ -44,8 +44,9 @@ Page({
       qcloud.loginWithCode({
         success: res => {
           this.setData({ userInfo: res, logged: true })
-          app.globalData.userInfo=this.data.userInfo
-          util.showSuccess('登录成功')
+          app.globalData.userInfo=this.data.userInfo;
+          this.autoGetBonds();
+          util.showSuccess('登录成功');
         },
         fail: err => {
           console.error(err)
@@ -56,8 +57,9 @@ Page({
       qcloud.login({
         success: res => {
           this.setData({ userInfo: res, logged: true })
-          app.globalData.userInfo = this.data.userInfo
-          util.showSuccess('登录成功')
+          app.globalData.userInfo = this.data.userInfo;
+          this.autoGetBonds();
+          util.showSuccess('登录成功');
         },
         fail: err => {
           console.error(err)
@@ -69,6 +71,10 @@ Page({
 
   },
   autoGetBonds: function(){
+    var tmp = app.globalData.userInfo;
+    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) {
+      return;
+    }
     var that=this; 
 
     wx.cloud.init();
