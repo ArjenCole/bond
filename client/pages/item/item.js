@@ -132,10 +132,10 @@ Page({
     var doneTimes = currentItem.DatesChecked.length;
     var ending = "";
     if (doneTimes >= currentItem.LowLimit) {
-      ending = "已经成功完成既定目标，能够获得全额保证金退还，共计退还" + currentItem.Bonds + "元；";
+      ending = "已经成功完成既定目标，能够获得全额保证金退还，共计退还" + util.refund(currentItem) + "元；";
     }
     else {
-      ending = "尚未能完成既定目标，若现在放弃，只能能退还保证金" + currentItem.Bonds * doneTimes / currentItem.LowLimit + "元；";
+      ending = "尚未能完成既定目标，若现在放弃，只能能退还保证金" + util.refund(currentItem) + "元；";
     }
     wx.showModal({
       title: '提示',
@@ -178,7 +178,7 @@ Page({
     const _ = db.command
     bond.doc(pID).update({
       data: {
-        Bonds: 0,
+        Bonds: -1,
       },
       success: function (res) {
         wx.navigateBack()

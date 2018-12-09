@@ -58,7 +58,7 @@ const fullFillItem = pItem =>{
   }
 
   tItem.isDone = false;
-  if (pItem.Bonds == 0){
+  if (pItem.Bonds < 0){
     tItem.isDone = true;
   }
 
