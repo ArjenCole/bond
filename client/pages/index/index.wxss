@@ -32,6 +32,12 @@
   color: #485D6B;
 }
 
+.userinfo-nickname {
+    font-size: 32rpx;
+    color: #485D6B;
+    background-color: white; 
+}
+
 /**page {
     background: #F6F6F6;
     display: flex;
@@ -60,11 +66,6 @@
     border-radius: 50%;
 }
 
-.userinfo-nickname {
-    font-size: 32rpx;
-    color: #007AFF;
-    background-color: white; 
-}
 
 .userinfo-nickname::after {
   border: none;

@@ -8,18 +8,18 @@
             background-size="cover"
         ></image>
         <view>
-            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点击登录</button>
+            <button class="userinfo-nickname" wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">点 击 登 录</button>
             <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
         </view>
     </view>
 
-  <view class="marginTop20">
+  <view class="marginTop20" wx:if="{{logged}}">
     <text bindtap="bindaddRecord" space="emsp" class="textFontSize" >保证金: {{bonds}}</text>
   </view>
-  <view class="bottom100">
+  <view class="bottom100" wx:if="{{logged}}">
     <text bindtap="bindItemsTap" space="emsp" class="textFontSize">目 标 管 理</text>
   </view>
-  <view class="bottom50">
+  <view class="bottom50" wx:if="{{logged}}">
     <text bindtap="bindWalletTap" space="emsp" class="textFontSize">余 额 管 理</text>
   </view>
 </view>
