@@ -85,7 +85,7 @@ Page({
   },
 
   bindApproveTap: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 
@@ -186,7 +186,7 @@ Page({
   getApprovals:function(){
     var that = this;
 
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const db_bond = db.collection('bond');
 

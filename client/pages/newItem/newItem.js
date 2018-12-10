@@ -56,7 +56,7 @@ Page({
     this.addRecord();
   },
   addRecord: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
     db.collection('bond').add({

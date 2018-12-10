@@ -77,7 +77,7 @@ Page({
     }
     var that=this; 
 
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const db_bond = db.collection('bond');
 
@@ -108,7 +108,7 @@ Page({
     })
   },
   bindaddRecord: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
     db.collection('bond').add({
@@ -308,7 +308,7 @@ Page({
   },
 
   addRecord: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
     db.collection('bond').add({
@@ -341,7 +341,7 @@ Page({
     })
   },
   getRecord: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 
@@ -359,7 +359,7 @@ Page({
 
     console.log("update")
 
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 

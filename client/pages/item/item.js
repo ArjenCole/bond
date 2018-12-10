@@ -154,7 +154,7 @@ Page({
 
   updateRecord: function () {
     var pID = this.data.item._id;
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 
@@ -172,7 +172,7 @@ Page({
     })
   },
   updateRecord_balance: function (pID, thisPage) {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 

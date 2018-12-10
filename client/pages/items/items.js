@@ -33,7 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const db_bond = db.collection('bond');
     
@@ -124,7 +124,7 @@ Page({
   },
 
   updateRecord_check: function (pID,thisPage) {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 
@@ -142,7 +142,7 @@ Page({
     })
   },
   updateRecord_balance: function (pID, thisPage) {
-    wx.cloud.init();
+    //wx.cloud.init();
     const db = wx.cloud.database();
     const bond = db.collection('bond');
 
