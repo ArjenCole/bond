@@ -5,7 +5,7 @@ var config = require('./config')
 App({
   onLaunch: function () {
     qcloud.setLoginUrl(config.service.loginUrl)
-    wx.cloud.init();
+    wx.cloud.init({ env: 'test181123'});
   },
   onShow: function (options) {
     //console.log("app",options);
