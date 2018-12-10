@@ -78,10 +78,12 @@ Page({
     var that=this; 
 
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const db_bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
-    db_bond.where({
+    bond.where({
       _openid: this.data.userInfo.openId
     }).get({
       success: function (res) {
@@ -109,9 +111,11 @@ Page({
   },
   bindaddRecord: function () {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
-    db.collection('bond').add({
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
+    bond.add({
       // data 字段表示需新增的 JSON 数据
       /*
       data: {
@@ -342,10 +346,12 @@ Page({
   },
   getRecord: function () {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
-    db.collection('bond').where({
+    bond.where({
       _openid: this.data.userInfo.openId
     }).get({
       success: function (res) {
@@ -360,11 +366,13 @@ Page({
     console.log("update")
 
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     const _ = db.command
-    db.collection('bond').doc("W_VgQ5SXoyWmaEi7").update({
+    bond.doc("W_VgQ5SXoyWmaEi7").update({
       data: {
         DatesChecked: _.push(new Date(Date.now()))
       },

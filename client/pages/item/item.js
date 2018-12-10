@@ -155,8 +155,10 @@ Page({
   updateRecord: function () {
     var pID = this.data.item._id;
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     const _ = db.command
     bond.doc(pID).update({
@@ -173,8 +175,10 @@ Page({
   },
   updateRecord_balance: function (pID, thisPage) {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     const _ = db.command
     bond.doc(pID).update({

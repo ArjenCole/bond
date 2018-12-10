@@ -86,8 +86,10 @@ Page({
 
   bindApproveTap: function () {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     var that=this;
     var pushStr = util.formatDate(new Date()) + this.data.userInfo.openId;
@@ -187,10 +189,12 @@ Page({
     var that = this;
 
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const db_bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
-    db_bond.where({
+    bond.where({
       _id: this.data.itemId
     }).get({
       success: function (res) {

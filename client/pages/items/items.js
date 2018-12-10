@@ -34,10 +34,12 @@ Page({
    */
   onShow: function () {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const db_bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
     
-    db_bond.where({
+    bond.where({
       _openid: app.globalData.userInfo.openId,
     }).get().then(res=>{
       app.globalData.itemList=res.data;
@@ -125,8 +127,10 @@ Page({
 
   updateRecord_check: function (pID,thisPage) {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     const _ = db.command
     bond.doc(pID).update({
@@ -143,8 +147,10 @@ Page({
   },
   updateRecord_balance: function (pID, thisPage) {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
 
     const _ = db.command
     bond.doc(pID).update({

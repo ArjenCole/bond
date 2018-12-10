@@ -6,6 +6,8 @@ App({
   onLaunch: function () {
     qcloud.setLoginUrl(config.service.loginUrl)
     wx.cloud.init({ env: 'test181123'});
+    this.globalData.db = wx.cloud.database();
+    this.globalData.col = this.globalData.db.collection('bond');
   },
   onShow: function (options) {
     //console.log("app",options);
@@ -31,5 +33,7 @@ App({
   globalData: {
     userInfo: null,
     itemList:[],
+    db: null,
+    col: null,
   }
 })

@@ -57,9 +57,11 @@ Page({
   },
   addRecord: function () {
     //wx.cloud.init();
-    const db = wx.cloud.database();
-    const bond = db.collection('bond');
-    db.collection('bond').add({
+    //const db = wx.cloud.database();
+    //const bond = db.collection('bond');
+    const db = app.globalData.db;
+    const bond = app.globalData.col;
+    bond.add({
       data: {
         Text: this.data.Text,
         DateStart: new Date(Date.now()),
