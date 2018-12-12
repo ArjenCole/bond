@@ -39,8 +39,9 @@ Page({
     util.showBusy('正在登录')
 
     const session = qcloud.Session.get()
+    console.log("session",session);
 
-    if (session) {
+    if (false) {//session
       qcloud.loginWithCode({
         success: res => {
           this.setData({ userInfo: res, logged: true })
