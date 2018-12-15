@@ -32,6 +32,23 @@ Page({
     this.autoGetBonds();
   },
 
+  bindGetUserInfo: function () {
+    this.autoGetUserInfo()
+  },
+  bindItemsTap: function () {
+    var tmp = app.globalData.userInfo;
+    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
+    wx.navigateTo({
+      url: '../items/items'
+    })
+  },
+  bindWalletTap: function () {
+    var tmp = app.globalData.userInfo;
+    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
+    wx.navigateTo({
+      url: '../wallet/wallet'
+    })
+  },
   // 获得用户信息
   autoGetUserInfo: function () {
     if (this.data.logged) return
@@ -39,9 +56,8 @@ Page({
     util.showBusy('正在登录')
 
     const session = qcloud.Session.get()
-    console.log("session",session);
 
-    if (false) {//session
+    if (session) {//session false
       qcloud.loginWithCode({
         success: res => {
           this.setData({ userInfo: res, logged: true })
@@ -51,25 +67,27 @@ Page({
         },
         fail: err => {
           console.error(err)
-          util.showModel('登录错误', err.message)
+          //util.showModel('登录错误', err.message)
+          this.login();
         }
       })
     } else {
-      qcloud.login({
-        success: res => {
-          this.setData({ userInfo: res, logged: true })
-          app.globalData.userInfo = this.data.userInfo;
-          this.autoGetBonds();
-          util.showSuccess('登录成功');
-        },
-        fail: err => {
-          console.error(err)
-          util.showModel('登录错误', err.message)
-        }
-      })
+      this.login();
     }
-
-
+  },
+  login : function(){
+    qcloud.login({
+      success: res => {
+        this.setData({ userInfo: res, logged: true })
+        app.globalData.userInfo = this.data.userInfo;
+        this.autoGetBonds();
+        util.showSuccess('登录成功');
+      },
+      fail: err => {
+        console.error(err)
+        util.showModel('登录错误', err.message)
+      }
+    })
   },
   autoGetBonds: function(){
     var tmp = app.globalData.userInfo;
@@ -96,20 +114,8 @@ Page({
     })
   },
 
-  bindItemsTap: function () {
-    var tmp = app.globalData.userInfo; 
-    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
-    wx.navigateTo({
-      url: '../items/items'
-    })
-  },
-  bindWalletTap: function () {
-    var tmp = app.globalData.userInfo;
-    if (!tmp && typeof (tmp) != "undefined" && tmp != 0) return;
-    wx.navigateTo({
-      url: '../wallet/wallet'
-    })
-  },
+
+//==============================================================================================================
   bindaddRecord: function () {
     //wx.cloud.init();
     //const db = wx.cloud.database();
@@ -137,7 +143,7 @@ Page({
         DateStart: new Date(Date.now()),
         DateStop: new Date("2019-03-01"),
         LowLimit: 40,
-        Bonds:10.5,
+        Bonds: 10.5,
         DatesChecked: []
       },
       success: function (res) {
@@ -147,11 +153,6 @@ Page({
     })
   },
 
-//==============================================================================================================
-
-  bindGetUserInfo: function () {
-    this.autoGetUserInfo()
-  },
   // 切换是否带有登录态
   switchRequestMode: function (e) {
     this.setData({
