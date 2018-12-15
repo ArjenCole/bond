@@ -16,7 +16,9 @@ App({
   sumBonds: function(){
     var tBonds = 0;
     for (var i = 0; i < this.globalData.itemList.length; i++) {
-      tBonds = tBonds + this.globalData.itemList[i].Bonds;       
+      if (this.globalData.itemList[i].Bonds > 0){
+        tBonds = tBonds + this.globalData.itemList[i].Bonds;       
+      }
     }
     return tBonds;
   },
