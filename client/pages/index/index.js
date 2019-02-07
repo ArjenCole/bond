@@ -117,8 +117,8 @@ Page({
   bindRequest: function () {
     var that = this
     wx.request({
-      //url: 'http://127.0.0.1:8000/',
-      url: 'https://testdjango.arjen.club/',
+      url: 'http://127.0.0.1:8000/',
+      //url: 'https://testdjango.arjen.club/',
       data: {
         interface: 'wxBondLogin',
         x: '1',
