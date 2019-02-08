@@ -117,11 +117,11 @@ Page({
   bindRequest: function () {
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:8000/',
-      //url: 'https://testdjango.arjen.club/',
+      //url: 'http://127.0.0.1:8000/wxBond/login',
+      url: 'https://testdjango.arjen.club/wxBond/login',
       data: {
-        interface: 'wxBondLogin',
-        x: '1',
+        //interface: 'wxBondLogin',
+        x: 'wx1',
         y: '2',
         z: '3'
       },
@@ -132,7 +132,7 @@ Page({
       success: function (res) {
         console.log(res)
         that.setData({
-          requestBackDetail: res.data.detail,
+          requestBackDetail: "res.data.detail",
         })
       }
     })
