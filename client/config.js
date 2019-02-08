@@ -13,7 +13,8 @@ var config = {
         host,
 
         // 登录地址，用于建立会话
-        loginUrl: `${host}/weapp/login`,
+        //loginUrl: `https://testdjango.arjen.club/wxBond/login`,//`${host}/weapp/login`,
+        loginUrl: `http://127.0.0.1:8000/wxBond/login`,//`${host}/weapp/login`,
 
         // 测试的请求地址，用于测试会话
         requestUrl: `${host}/weapp/user`,
