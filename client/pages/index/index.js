@@ -34,6 +34,21 @@ Page({
 
   bindGetUserInfo: function () {
     //this.autoGetUserInfo()
+    var that=this
+    util.showBusy('正在登录')
+    wx.getUserInfo({
+      success(userResult) {
+        util.showSuccess('登录成功');
+        //console.log('userResult', userResult)
+        that.setData({ userInfo: userResult.userInfo, logged: true })
+        app.globalData.userInfo = that.data.userInfo;
+      },
+      fail(userError) {
+        util.showModel('错误提示','获取用户信息失败');
+      }
+    });
+
+/*
     wx.login({
       success(res) {
         if (res.code) {
@@ -44,8 +59,19 @@ Page({
             data: {
               code: res.code
             },
-            success: res => {
-              console.log(res)
+            success: loginResult => {
+              //console.log('loginResult',loginResult)
+              wx.getUserInfo({
+                success(userResult) {
+                  util.showSuccess('登录成功');
+                  //console.log('userResult', userResult)
+                  that.setData({ userInfo: userResult.userInfo, logged: true })
+                  app.globalData.userInfo = that.data.userInfo;
+                },
+                fail(userError) {
+                  util.showModel('获取用户信息失败');
+                }
+              });
             }
           })
         } else {
@@ -53,6 +79,7 @@ Page({
         }
       }
     })
+    */
   },
   bindItemsTap: function () {
     var tmp = app.globalData.userInfo;
@@ -134,6 +161,7 @@ Page({
   },
 
   bindRequest: function () {
+    /*
     var that = this
     wx.request({
       //url: 'http://127.0.0.1:8000/wxBond/login',
@@ -155,6 +183,7 @@ Page({
         })
       }
     })
+    */
   },
 
 //==============================================================================================================
