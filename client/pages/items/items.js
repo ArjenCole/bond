@@ -36,11 +36,12 @@ Page({
     //wx.cloud.init();
     //const db = wx.cloud.database();
     //const bond = db.collection('bond');
+    console.log(app.globalData.openid);
     const db = app.globalData.db;
     const bond = app.globalData.col;
     
     bond.where({
-      _openid: app.globalData.userInfo.openId,
+      _openid: "oQY-45dVKlgS88apAUchQHo3F37c",//app.globalData.openid,
     }).get().then(res=>{
       app.globalData.itemList=res.data;
       this.setData({

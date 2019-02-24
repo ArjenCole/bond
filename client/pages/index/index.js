@@ -36,6 +36,7 @@ Page({
     //this.autoGetUserInfo()
     var that=this
     util.showBusy('正在登录')
+    /*
     wx.getUserInfo({
       success(userResult) {
         util.showSuccess('登录成功');
@@ -47,8 +48,8 @@ Page({
         util.showModel('错误提示','获取用户信息失败');
       }
     });
+    */
 
-/*
     wx.login({
       success(res) {
         if (res.code) {
@@ -60,11 +61,12 @@ Page({
               code: res.code
             },
             success: loginResult => {
-              //console.log('loginResult',loginResult)
+              console.log('loginResult', loginResult)
+              app.globalData.openid = loginResult.data.openid;
               wx.getUserInfo({
                 success(userResult) {
                   util.showSuccess('登录成功');
-                  //console.log('userResult', userResult)
+                  console.log('userResult', userResult)
                   that.setData({ userInfo: userResult.userInfo, logged: true })
                   app.globalData.userInfo = that.data.userInfo;
                 },
@@ -79,7 +81,7 @@ Page({
         }
       }
     })
-    */
+    
   },
   bindItemsTap: function () {
     var tmp = app.globalData.userInfo;
